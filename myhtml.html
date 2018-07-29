@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>project</title>
+    <style>
+        .clicked {
+            stroke: black;
+            stroke-width: 2px;
+        }
+        text {
+            pointer-events: none;
+        }
+        div.tooltip {
+            position: absolute;
+            text-align: center;
+            width: auto;
+            height: auto;
+            padding: 2px;
+            font: 12px sans-serif;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            border: 0px;
+            border-radius: 8px;
+            pointer-events: none;
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+<button type="button" onclick="alert('The visualization shows the export and import quantities of various food items for top 5 food producing countries in the world from 2009-2013.The first scene is showing total food export and import (in 1000 tonnes) plotted along y-axis against each country along x-axis. One can select the year and observe the trend for each country individually and compared to other countries. tooltips have been used to show value of each quantity when hovered over each bar. The second scene opens as a bubble chart when clicking on any bar, showing all food items being exported or imported in a particular year for that country. Each selected item is highlighted for better visibility. The second scene is made such that when clicking on any food item in bubble chart, the bar chart in first scene is updated to show comparison of that food item only based on export / import quantity and year. To return seeing the total export and import for that year the user can just click the Total button provided in top left corner. Appropriate annotations have been used to guide user through the visualization ')">About the Visualization</button>
+<h1 align="center">Export-Import of top 5 food producing countries </h1>
+<div id="buttons">
+    <button onclick="draw(null, 'Total')">Total</button>
+    <!--<button onclick="getButtons()">Get all items</button>-->
+</div>
+
+<form id="years">
+    <input onclick="draw('2009')" type="radio" name="year" value="2009"> 2009<br>
+    <input onclick="draw('2010')" type="radio" name="year" value="2010"> 2010<br>
+    <input onclick="draw('2011')" type="radio" name="year" value="2011"> 2011<br>
+    <input onclick="draw('2012')" type="radio" name="year" value="2012"> 2012<br>
+    <input onclick="draw('2013')" type="radio" name="year" value="2013" checked> 2013<br>
+</form>
+<h2 class="bar"></h2>
+<h2 class="bubble" style="position: absolute; top: 630px"></h2>
+
+ <svg width="960" height="500"></svg>
+ <script src="https://d3js.org/d3.v4.min.js"></script>
+ <script src="myscript.js"></script>
+</body>
+</html>
